@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
 
     private String[] messages;
     private Random random;
+    private Random colorRandom;
 
 
     @Override
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         random = new Random();
+        colorRandom = new Random();
         messages = new String[10];
         messages[0] = "Hello Dave!";
         messages[1] = "These are not the Droids you're looking for.";
@@ -60,6 +62,11 @@ public class MainActivity extends AppCompatActivity {
     {
         TextView text = (TextView) findViewById(R.id.textview1);
         text.setText(messages[random.nextInt(10)]);
+    }
 
+    public void changeColor(View view)
+    {
+        TextView text = (TextView) findViewById(R.id.textview1);
+        text.setTextColor(colorRandom.nextInt());
     }
 }
